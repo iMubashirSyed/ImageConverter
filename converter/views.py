@@ -39,6 +39,7 @@ def download_image(request, task_id):
         with open(converted_image_path, 'rb') as f:
             response = HttpResponse(f.read(), content_type='image/png')
             response['Content-Disposition'] = f'attachment; filename="converted_image_{task_id}.png"'
+            image_instance.converted_image.delete(save=False)
             return response
     else:
         return render(request, 'download_image.html', {

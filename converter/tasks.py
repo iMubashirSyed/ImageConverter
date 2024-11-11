@@ -20,3 +20,6 @@ def convert_image_to_png(image_id):
     # Save the converted image to the model
     image_instance.converted_image.save(f'{image_id}_converted.png', output_image)
     image_instance.save()
+
+    if image_instance.original_image:
+        image_instance.original_image.delete(save=False)
