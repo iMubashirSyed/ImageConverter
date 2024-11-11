@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from .models import ImageUpload
 from .tasks import convert_image_to_png
 from celery.result import AsyncResult
+from django.conf import settings
+import os
 
 def home(request):
     if request.method == 'POST':
@@ -30,11 +32,14 @@ def download_image(request, task_id):
     image_instance = ImageUpload.objects.get(conversion_task_id=task_id)
 
     if result.ready() and image_instance.converted_image:
-        return render(request, 'download_image.html', {
-            'converted_image_url': image_instance.converted_image.url,
-            'task_ready': True,
-            'task_id': task_id
-        })
+        converted_image_url = image_instance.converted_image.url
+
+        converted_image_path = os.path.join(settings.MEDIA_ROOT, converted_image_url.strip('/media/'))
+        
+        with open(converted_image_path, 'rb') as f:
+            response = HttpResponse(f.read(), content_type='image/png')
+            response['Content-Disposition'] = f'attachment; filename="converted_image_{task_id}.png"'
+            return response
     else:
         return render(request, 'download_image.html', {
             'task_ready': False,
