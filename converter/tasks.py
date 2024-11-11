@@ -1,20 +1,22 @@
 from celery import shared_task
 from PIL import Image
 from django.core.files.storage import default_storage
+from .models import ImageUpload
+import io
 
 @shared_task
-def convert_image_to_png(image_path):
+def convert_image_to_png(image_id):
+    image_instance = ImageUpload.objects.get(id=image_id)
+
+    # Open the original image
+    with image_instance.original_image.open('rb') as f:
+        im = Image.open(f).convert('RGB')
     
-    f = default_storage.open(image_path,'rb')
-    im = Image.open(f).convert('RGB')
-    f.close()
-    
-    # replace() is used twice cause if the image is in jpg/jpeg it will convert into png
-    convert_image = image_path.replace('.jpg', '.png').replace('.jpeg', '.png')
-    
-    output_image = default_storage.open(convert_image, 'wb')
-    im.save(output_image, format='png')
-    output_image.close()
-    
-    return convert_image
-    
+    # Convert and save the image in memory
+    output_image = io.BytesIO()
+    im.save(output_image, format='PNG')
+    output_image.seek(0)
+
+    # Save the converted image to the model
+    image_instance.converted_image.save(f'{image_id}_converted.png', output_image)
+    image_instance.save()
