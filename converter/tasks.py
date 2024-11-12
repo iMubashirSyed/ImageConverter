@@ -23,3 +23,9 @@ def convert_image_to_png(image_id):
 
     if image_instance.original_image:
         image_instance.original_image.delete(save=False)
+    # Save the converted image to the model
+    # image_instance.converted_image = output_image
+    # image_instance.save()
+    
+    # if image_instance.original_image:
+    #     image_instance.original_image.delete(save=False)

@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyd
+/media/
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Django-specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+/media/
+staticfiles/
+static/
+local_settings.py
+
+# Environment variables
+.env
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Node and NPM (if you have front-end setup)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Distribution / Packaging
+*.egg-info/
+.installed.cfg
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+test-results/
+
+# MyPy
+.mypy_cache/
+
+# Celery beat schedule file
+celerybeat-schedule
+
+# Other
+*.pid
+*.log
+*.out
+*.err
