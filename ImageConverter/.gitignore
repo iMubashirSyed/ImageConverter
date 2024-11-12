@@ -1,73 +1,138 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.pyd
-/media/
-# Virtual environment
-venv/
-env/
-ENV/
-
-# Django-specific
+# Django #
 *.log
 *.pot
 *.pyc
-*.pyo
-*.sqlite3
+__pycache__
 db.sqlite3
-/media/
-staticfiles/
-static/
-local_settings.py
+media
 
-# Environment variables
-.env
+# Backup files # 
+*.bak 
 
-# IDEs and editors
-.idea/
-.vscode/
-*.swp
-*.swo
+# If you are using PyCharm # 
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 
-# MacOS
-.DS_Store
+# AWS User-specific
+.idea/**/aws.xml
 
-# Node and NPM (if you have front-end setup)
-node_modules/
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+# Generated files
+.idea/**/contentModel.xml
 
-# Distribution / Packaging
-*.egg-info/
-.installed.cfg
-*.egg
-*.egg-info/
-.eggs/
-dist/
-build/
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
 
-# Coverage reports
-htmlcov/
-.coverage
-.tox/
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-test-results/
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
 
-# MyPy
-.mypy_cache/
+# File-based project format
+*.iws
 
-# Celery beat schedule file
-celerybeat-schedule
+# IntelliJ
+out/
 
-# Other
-*.pid
-*.log
-*.out
-*.err
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Python # 
+*.py[cod] 
+*$py.class 
+
+# Distribution / packaging 
+.Python build/ 
+develop-eggs/ 
+dist/ 
+downloads/ 
+eggs/ 
+.eggs/ 
+lib/ 
+lib64/ 
+parts/ 
+sdist/ 
+var/ 
+wheels/ 
+*.whl
+*.egg-info/ 
+.installed.cfg 
+*.egg 
+*.manifest 
+*.spec 
+
+# Installer logs 
+pip-log.txt 
+pip-delete-this-directory.txt 
+
+# Unit test / coverage reports 
+htmlcov/ 
+.tox/ 
+.coverage 
+.coverage.* 
+.cache 
+.pytest_cache/ 
+nosetests.xml 
+coverage.xml 
+*.cover 
+.hypothesis/ 
+
+# Jupyter Notebook 
+.ipynb_checkpoints 
+
+# pyenv 
+.python-version 
+
+# celery 
+celerybeat-schedule.* 
+
+# SageMath parsed files 
+*.sage.py 
+
+# Environments 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 
+
+# mkdocs documentation 
+/site 
+
+# mypy 
+.mypy_cache/ 
+
+# Sublime Text # 
+*.tmlanguage.cache 
+*.tmPreferences.cache 
+*.stTheme.cache 
+*.sublime-workspace 
+*.sublime-project 
+
+# sftp configuration file 
+sftp-config.json 
+
+# Package control specific files Package 
+Control.last-run 
+Control.ca-list 
+Control.ca-bundle 
+Control.system-ca-bundle 
+GitHub.sublime-settings 
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
